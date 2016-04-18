@@ -116,7 +116,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Samkelo_Access_Test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
