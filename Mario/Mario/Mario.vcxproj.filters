@@ -27,7 +27,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MChar.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="splashTest.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
