@@ -12,13 +12,13 @@ private:
 	int boundy;
 
 public:
-	void CreateEnemies(Enemy guys[], int size, int counter);
-	void SetEnemies(Enemy guys[], int size);
-	void DrawEnemies(Enemy guys[], int size, int counter);
-	void StartEnemies(Enemy guys[], int size);
-	void Collision(Enemy guys[], int size, int counter);
-	void Dead(Enemy guys[], int size);
-	void Apocalypse(Enemy guys[], int size);
+	void CreateEnemies(Enemy [], int , int );
+	void SetEnemies(Enemy [], int );
+	void DrawEnemies(Enemy [], int , int );
+	void StartEnemies(Enemy [], int );
+	void Collision(Enemy [], int , int );
+	void Dead(Enemy [], int );
+	void Apocalypse(Enemy [], int );
 
 
 };
