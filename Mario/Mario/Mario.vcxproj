@@ -126,6 +126,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Enemies.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MChar.cpp" />
   </ItemGroup>
@@ -133,6 +134,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Enemies.h" />
     <ClInclude Include="MChar.h" />
   </ItemGroup>
   <ItemGroup>
