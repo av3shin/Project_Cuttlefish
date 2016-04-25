@@ -138,6 +138,7 @@
     <ClInclude Include="MChar.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="MCimage.png" />
     <Image Include="splashTest.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
