@@ -34,7 +34,7 @@
     <Image Include="splashTest.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="MCimage.png">
+    <Image Include="MC.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
