@@ -126,6 +126,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BackgroundTest1.cpp" />
     <ClCompile Include="Enemies.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MChar.cpp" />
