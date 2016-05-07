@@ -5,7 +5,7 @@ void Enemy::CreateEnemies(Enemy guys[], int size, int counter)
 	int level = 0;
 	int res_y = 0;
 
-	if (level == 1)
+	if (level == 1) //level 1 enenmies
 	{
 
 		for (int i = 0; i < size; i++) {
