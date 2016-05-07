@@ -80,7 +80,7 @@ int main(int argc, char** argv)
 	}
 
 	display = al_create_display(widthS, heightS); //Creating the display
-	if (!display)
+	if (!display)//Check if display is created successfully
 	{
 		fprintf(stderr, "Display failed \n");
 		return -1;
@@ -239,11 +239,11 @@ int main(int argc, char** argv)
 	    //--------------------------------------------------
 	
 //-------------------------------------------------------------------------------------------------------------
-// Memory Deallocation: Start
+// Memory Deallocation: Start (deloctaing all relevant memory)
 //-------------------------------------------------------------------------------------------------------------
 	al_destroy_bitmap(MC);
 	al_destroy_timer(timer);
-	al_destroy_display(display); //deallocating memory from the display and image bitmap
+	al_destroy_display(display);
 	al_destroy_event_queue(ev_q);
 //-------------------------------------------------------------------------------------------------------------
 // Memory Deallocation: End
