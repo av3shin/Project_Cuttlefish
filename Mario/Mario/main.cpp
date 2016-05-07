@@ -20,14 +20,107 @@
 #include "allegro5\allegro.h"
 #include "allegro5\allegro_image.h"
 #include "allegro5\allegro_native_dialog.h" //importing the necessary allegro headers
+#include <allegro5\allegro_font.h>				
+#include <allegro5\allegro_ttf.h>
+#include <allegro5\allegro_primitives.h>	
+#include "Objects.h"
+#include <allegro5\allegro_audio.h>
+#include <allegro5\allegro_acodec.h>
 
-const float FPS = 60;                       //necessary for game clock and draw rate
-const int widthS = 800;
-const int heightS = 600;                    //constant integers that dictate the width & height of the display
-enum c_keys 
-{
-	key_UP, key_DOWN, key_RIGHT, key_LEFT, key_ACT //Setting up needed keys for keyboard control of MC
-};
+enum Keys { A, S, D, W, SPACE, L }; //Setting up needed keys for keyboard control of MC
+int res_x = 1280; //constant integers that dictate the width & height of the display
+int res_y = 820;
+int pos_x = 0;
+int checkpoint = 0;
+int blockNum = 0;
+const int num_proj = 5;
+int level = 1;
+int g = 1;
+
+
+struct person {
+	int r = 20;
+	int feet = res_y - 55;
+	int x = 200;
+	int y = feet - (3 * r);
+	int j_height = res_y - 450;
+	int ms = 5;
+	int jumpspeed = 7;
+	int lives = 5;
+	int score = 0;
+
+
+}player;
+
+int deathDelay = 0;
+int c = 0;
+int wait = 0;
+int box_width = player.r * 2 + 15;
+int box_bounds = box_width;
+int pipe_width = 120;
+int pipe_bounds = pipe_width;
+int spike_height = 50;
+int spike_width = 20;
+bool deathPause = false;
+bool LR = false;
+
+
+
+void initproj(Projectiles proj[], int size);
+void drawproj(Projectiles proj[], int size);
+void shoot(Projectiles proj[], int size);
+void update(Projectiles proj[], int size);
+void SetEnemies(enemies guys[], int size);
+void StartEnemies(enemies guys[], int size);
+void CreateEnemies(enemies guys[], int size, int counter);
+void DrawEnemies(enemies guys[], int size, int counter);
+void Collision(Projectiles proj[], int sizeP, enemies guys[], int sizeE, int counter);
+bool CollideEnemy(enemies guys[], int size, int counter);
+void ISEEDEADPEOPLE(enemies guys[], int size);
+void Apocalypse(enemies guys[], int size);
+
+int num_bg = 10;
+int num_ground = 10;
+
+void GenerateSTART(bool check);
+
+void HittingBlocks(Projectiles proj[], int size, int sizeB, block blocks[]);
+void HittingPipes(Projectiles proj[], int size, int sizeP, Pipe pipes[]);
+
+int const num_enemies = 22;
+bool shot = false;
+
+enemies guys[num_enemies];
+
+// Audio Import Section
+ALLEGRO_SAMPLE *shot1 = NULL;
+ALLEGRO_SAMPLE_ID *foo = NULL;
+
+ALLEGRO_SAMPLE *boom = NULL;
+ALLEGRO_SAMPLE_ID *foo1 = NULL;
+
+ALLEGRO_SAMPLE *song = NULL;
+ALLEGRO_SAMPLE_ID *foo2 = NULL;
+
+ALLEGRO_SAMPLE *jumping = NULL;
+ALLEGRO_SAMPLE_ID *foo3 = NULL;
+
+ALLEGRO_SAMPLE *bump = NULL;
+ALLEGRO_SAMPLE_ID *foo4 = NULL;
+
+ALLEGRO_SAMPLE *die = NULL;
+ALLEGRO_SAMPLE_ID *foo5 = NULL;
+
+ALLEGRO_SAMPLE *pause = NULL;
+ALLEGRO_SAMPLE_ID *foo6 = NULL;
+
+ALLEGRO_SAMPLE *GO = NULL;
+ALLEGRO_SAMPLE_ID *foo7 = NULL;
+
+
+ALLEGRO_SAMPLE_INSTANCE *songInstance = NULL;
+
+// Audio Import Section End
 //-------------------------------------------------------------------------------------------------------------
 // Imports and Constants: End
 //-------------------------------------------------------------------------------------------------------------
@@ -254,3 +347,5 @@ int main(int argc, char** argv)
 //-------------------------------------------------------------------------------------------------------------
 // Main Method: End
 //-------------------------------------------------------------------------------------------------------------
+
+//aadd

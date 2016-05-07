@@ -126,7 +126,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BackgroundTest1.cpp" />
     <ClCompile Include="Enemies.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MChar.cpp" />
@@ -137,6 +136,7 @@
   <ItemGroup>
     <ClInclude Include="Enemies.h" />
     <ClInclude Include="MChar.h" />
+    <ClInclude Include="Objects.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="MC.png" />
