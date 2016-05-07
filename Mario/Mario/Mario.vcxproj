@@ -137,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="The Nightmare - Design Report.docx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemies.h" />

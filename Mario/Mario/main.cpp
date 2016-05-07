@@ -1,13 +1,13 @@
 //-------------------------------------------------------------------------------------------------------------
 // Main Solution
 //-------------------------------------------------------------------------------------------------------------
-/*
-Includes:
-- Related Allegro Addon imports
-- Set constants for the frames/second (FPS) and frame height & width
-- Sets keys to be used (directional movement has been implemented, but the action key is unused)
-- Initialisations: allegro, keyboard, timer, event queue, image addon, bitmap, display
-- Initialisation ERROR checks are included
+/* 
+   Includes:
+            - Related Allegro Addon imports
+			- Set constants for the frames/second (FPS) and frame height & width
+			- Sets keys to be used (directional movement has been implemented, but the action key is unused)
+			- Initialisations: allegro, keyboard, timer, event queue, image addon, bitmap, display
+			- Initialisation ERROR checks are included
 //-------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------
 */
@@ -233,7 +233,7 @@ int pointer = 400;
 //-------------------------------------------------------------------------------------------------------------
 
 int main(void)
-{
+	{
 	bool gamePause = false;
 	bool gameStart = false;
 	int loadDelay = 0;
@@ -517,7 +517,7 @@ int main(void)
 						if (feet_check)
 						{
 							feet_check = false;
-						}
+	}
 					}
 				}
 				else { if (pointer > 400)pointer -= 50; }
@@ -565,7 +565,7 @@ int main(void)
 
 		}
 		else if (ev.type == ALLEGRO_EVENT_KEY_UP)
-		{
+	{
 			switch (ev.keyboard.keycode)
 			{
 			case ALLEGRO_KEY_ESCAPE:
@@ -573,7 +573,7 @@ int main(void)
 				if (gamePause)
 				{
 					gameStart = true;
-				}
+	}
 				gameStart = false;
 				break;
 			case ALLEGRO_KEY_L:
@@ -583,11 +583,11 @@ int main(void)
 			case ALLEGRO_KEY_UP:
 
 				if (!jump_h&&!feet_check)
-				{
+	{
 					moveU = false;
 
 					fall = true;
-				}
+	}
 				break;
 
 			case ALLEGRO_KEY_RIGHT:
@@ -601,7 +601,7 @@ int main(void)
 			case ALLEGRO_KEY_SPACE:
 				if (gameStart) {
 					if (deathPause)
-					{
+	{
 						player.score -= 50;
 						player.lives--;
 						if (player.lives > 0)
@@ -612,16 +612,15 @@ int main(void)
 							deathPause = false;
 							deathsound = true;
 							GOsound = true;
-						}
+	}
 						if (player.lives == 0)
 						{
 
-							//al_play_sample(pause, 1, 0, 1, ALLEGRO_PLAYMODE_ONCE, foo6);//SOME GAME OVER MESSSAGE HERE <----------------------------------------------------------------------------------------------------
-							stage = false;
-							if (gamePause)
-							{
+	display = al_create_display(res_x, res_y); //Creating the display
+	if (!display)
+	{
 								gameStart = true;
-							}
+	}
 							gameStart = false;
 
 							level = 1;
@@ -644,9 +643,9 @@ int main(void)
 
 				}
 				else if (gameOverDelay)
-				{
+	{
 					gameOverDelay = false;
-				}
+	}
 				else if (!gameStart &&!gameOverDelay)
 				{
 					if (pointer == 400)
@@ -684,7 +683,7 @@ int main(void)
 						}
 					}
 					else if (pointer == 500)
-					{
+	{
 						Gamerunning = false;
 					}
 				}
@@ -1158,7 +1157,7 @@ int main(void)
 	al_destroy_sample(boom);
 	al_destroy_sample(song);
 	al_destroy_sample_instance(songInstance);
-	al_destroy_display(display);
+		al_destroy_display(display);
 }
 
 void resize(int r1) {
@@ -2047,7 +2046,7 @@ bool box_right(block B[], int size)
 			}
 	}
 	return check;
-}
+	}
 bool box_left(block B[], int size)
 {
 
@@ -2073,13 +2072,13 @@ bool noblock(block B[], int size)
 		for (int j = -player.r; j < box_bounds + 10 - player.r; j++)
 		{
 			if (B[i].x == player.x - j + pos_x)
-			{
+	{
 				check = true;
 			}
 		}
 	}
 	return check;
-}
+	}
 
 
 
@@ -2145,7 +2144,7 @@ bool checkpipe(Pipe pipes[], int size)
 }
 bool pipe_right(Pipe pipes[], int size)
 {
-
+	
 	bool check = true;
 	for (int i = 0; i < size; i++)
 	{
@@ -2155,7 +2154,7 @@ bool pipe_right(Pipe pipes[], int size)
 				for (int j = 0; j<pipe_width; j++)
 					if (player.feet>pipes[i].y + j && (player.y + player.r) < res_y - 50)
 						check = false;
-
+	
 			}
 	}
 	return check;
@@ -2168,7 +2167,7 @@ bool pipe_left(Pipe pipes[], int size)
 	{
 		for (int k = 0; k < 10; k++)
 			if (pipes[i].x + pipe_width == player.x - player.r + pos_x + k - 20)
-			{
+	{
 				for (int j = 0; j<pipe_width; j++)
 					if (player.feet>pipes[i].y + j && (player.y + player.r) <  res_y - 50)
 						check = false;
@@ -2185,10 +2184,10 @@ bool pipe_left(Pipe pipes[], int size)
 
 
 void createSpike(spike spikes[], int size)
-{
+		{
 
 	for (int i = 0; i < size; i++)
-	{
+			{
 		float degree = 90;
 		if (!spikes[i].r&&!spikes[i].l)
 			al_draw_scaled_bitmap(image5, 0, 0, image5Width, image5Height, spikes[i].x + spike_width - pos_x - 25, spikes[i].y - spike_height + 15, image5Width*0.8, image5Height*0.8, spikes[i].d * 2);
@@ -2198,7 +2197,7 @@ void createSpike(spike spikes[], int size)
 			al_draw_rotated_bitmap(image5, image5Width, 0 / 2, spikes[i].x + spike_width - pos_x - 25, spikes[i].y - spike_height + 15, (spikes[i].l*degree * 2 + degree)*3.1415 / 180, 0);
 
 	}
-}
+			}
 bool spikeCollide(spike spikes[], int size)
 {
 
@@ -2212,7 +2211,7 @@ bool spikeCollide(spike spikes[], int size)
 			{
 				for (int j = 0; j<spike_width; j++)
 					if (player.feet>spikes[i].y + j - (spikes[i].l * 20) - (spikes[i].r * 40) && (player.y + player.r) < spikes[i].y + 75 - (spikes[i].l * 50) - (spikes[i].r * 100))
-					{
+			{
 
 						dead = true;
 						//al_stop_sample_instance(songInstance);
@@ -2222,7 +2221,7 @@ bool spikeCollide(spike spikes[], int size)
 		}
 	}
 	return dead;
-}
+			}
 
 
 
@@ -2233,35 +2232,35 @@ bool spikeCollide(spike spikes[], int size)
 void initproj(Projectiles proj[], int size)
 {
 	for (int i = 0; i < size; i++)
-	{
+			{
 		proj[i].ID = PROJECTILES;
 		proj[i].speed = 10;
 		proj[i].live = false;
 	}
-}
+			}
 void drawproj(Projectiles proj[], int size)
 {
 	for (int i = 0; i < size; i++)
 	{
 		if (proj[i].live)
-		{
+			{
 			al_draw_filled_circle(proj[i].x, proj[i].y, 5, al_map_rgb(0, 0, 0));
 
 		}
-	}
-}
+			}
+		}
 void shoot(Projectiles proj[], int size) {
 	al_play_sample(shot1, 1, 0, 1, ALLEGRO_PLAYMODE_ONCE, foo);
 
 	for (int i = 0; i < size; i++)
-	{
-		if (!proj[i].live)
 		{
+		if (!proj[i].live)
+			{
 			proj[i].x = player.x + 20;
 			proj[i].y = player.y;
 			proj[i].live = true;
-			break;
-		}
+				break;
+			}
 
 	}
 }
@@ -2369,7 +2368,7 @@ void DrawEnemies(enemies guys[], int size, int counter)
 
 
 	}
-}
+		}
 void StartEnemies(enemies guys[], int size)
 {
 
@@ -2460,16 +2459,16 @@ void GenerateBG_G()
 		al_draw_scaled_bitmap(bgimage, 0, 0, imageBGWidth, imageBGHeight, (1280 * i) - pos_x, 0, imageBGWidth, imageBGHeight, 0);
 
 
-	}
+		}
 
 	for (int i = 0; i < num_ground; i++)
-	{
+		{
 
 		al_draw_scaled_bitmap(imageB, 0, 0, imageBWidth, imageBHeight, (1280 * i) - pos_x, res_y - 50, imageBWidth, imageBHeight, 0);
 	}
 
 
-}
+		}
 void GenerateSTART(bool check)
 {
 	if (check)
@@ -2494,7 +2493,8 @@ void GenerateSTART(bool check)
 		if (pointer == 500)
 			al_draw_scaled_bitmap(WALLQimage, 0, 0, imageWALLQWidth, imageWALLQHeight, 0, 0, imageWALLQWidth, imageWALLQHeight, 0);//PAUSE screen
 
-	}
+
+}
 
 
 }
