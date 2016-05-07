@@ -76,6 +76,11 @@
     <Allegro_LibraryType>DynamicDebug</Allegro_LibraryType>
     <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
     <Allegro_AddonImage>true</Allegro_AddonImage>
+    <Allegro_AddonAudio>true</Allegro_AddonAudio>
+    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
+    <Allegro_AddonPhysfs>true</Allegro_AddonPhysfs>
+    <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
+    <Allegro_AddonVideo>true</Allegro_AddonVideo>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Allegro_AddonImage>true</Allegro_AddonImage>
@@ -139,8 +144,70 @@
     <ClInclude Include="Objects.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="8-Bit_Luigi.png" />
+    <Image Include="back1.png" />
+    <Image Include="bricks.png" />
+    <Image Include="Bullet_Bill_(New_Super_Mario_Bros.).png" />
+    <Image Include="died.png" />
+    <Image Include="endgame.jpg" />
+    <Image Include="gameover.jpg" />
+    <Image Include="gameoverFlash.jpg" />
+    <Image Include="Goomba.png" />
+    <Image Include="ground.png" />
+    <Image Include="Koopa.png" />
+    <Image Include="Koopa1.png" />
+    <Image Include="Koopa_Left.png" />
+    <Image Include="Koopa_Right.png" />
+    <Image Include="LJ1.png" />
+    <Image Include="LJ2.png" />
+    <Image Include="LW1.png" />
+    <Image Include="LW2.png" />
+    <Image Include="LW3.png" />
+    <Image Include="LW4.png" />
     <Image Include="MC.png" />
+    <Image Include="MW1.png" />
+    <Image Include="MW2.png" />
+    <Image Include="MW3.png" />
+    <Image Include="MW4.png" />
+    <Image Include="pause1.jpg" />
+    <Image Include="pause2.jpg" />
+    <Image Include="pause3.jpg" />
+    <Image Include="quit.jpg" />
+    <Image Include="quit2.jpg" />
+    <Image Include="real_life_8_bit_super_mushroom_by_brulescorrupted-d6fpn63.png" />
+    <Image Include="screen1.jpg" />
+    <Image Include="screen2.jpg" />
+    <Image Include="screen3.jpg" />
+    <Image Include="spike.png" />
     <Image Include="splashTest.png" />
+    <Image Include="start.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="arial.ttf" />
+    <Font Include="arialbd.ttf" />
+    <Font Include="arialbi.ttf" />
+    <Font Include="ariali.ttf" />
+    <Font Include="ARIALN.TTF" />
+    <Font Include="ARIALNB.TTF" />
+    <Font Include="ARIALNBI.TTF" />
+    <Font Include="ARIALNI.TTF" />
+    <Font Include="ariblk.ttf" />
+    <Font Include="emulogic.ttf" />
+    <Font Include="tlpsmb.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="boom.wav" />
+    <Media Include="bump.wav" />
+    <Media Include="Dark Souls - You Died Sound Effect.mp3" />
+    <Media Include="die.wav" />
+    <Media Include="die2.wav" />
+    <Media Include="GO.wav" />
+    <Media Include="jump.wav" />
+    <Media Include="pause.wav" />
+    <Media Include="shot.wav" />
+    <Media Include="Sjump.wav" />
+    <Media Include="song.mp3" />
+    <Media Include="song.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -46,5 +46,183 @@
     <Image Include="MC.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="8-Bit_Luigi.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="back1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bricks.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Bullet_Bill_(New_Super_Mario_Bros.).png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="died.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="endgame.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="gameover.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="gameoverFlash.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Goomba.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="ground.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Koopa.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Koopa_Left.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Koopa_Right.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Koopa1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="LJ1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="LJ2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="LW1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="LW2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="LW3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="LW4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="MW1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="MW2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="MW3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="MW4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="pause1.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="pause2.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="pause3.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="quit.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="quit2.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="screen1.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="screen2.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="screen3.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="spike.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="start.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="real_life_8_bit_super_mushroom_by_brulescorrupted-d6fpn63.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="arial.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="arialbd.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="arialbi.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="ariali.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="ARIALN.TTF">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="ARIALNB.TTF">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="ARIALNBI.TTF">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="ARIALNI.TTF">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="ariblk.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="emulogic.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="tlpsmb.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="boom.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="bump.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Dark Souls - You Died Sound Effect.mp3">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="die.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="die2.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="GO.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="jump.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="pause.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="shot.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Sjump.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="song.mp3">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="song.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>
