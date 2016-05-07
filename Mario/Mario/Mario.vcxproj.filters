@@ -188,12 +188,6 @@
     </Font>
   </ItemGroup>
   <ItemGroup>
-    <Media Include="boom.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="bump.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
     <Media Include="Dark Souls - You Died Sound Effect.mp3">
       <Filter>Resource Files</Filter>
     </Media>
@@ -222,6 +216,12 @@
       <Filter>Resource Files</Filter>
     </Media>
     <Media Include="song.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="boom.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="bump.wav">
       <Filter>Resource Files</Filter>
     </Media>
   </ItemGroup>
