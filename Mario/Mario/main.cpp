@@ -878,6 +878,12 @@ int main(void)
 				}
 				// END MOVES CHARACTER
 
+
+
+
+
+
+
 				//ENEMY MOVING
 
 				if (keys[SPACE])
@@ -1061,6 +1067,7 @@ int main(void)
 
 					if (level == 2)
 					{
+						//al_draw_filled_rectangle(0, 0, res_x, res_y, al_map_rgb(2, 220, 0));//PUT THE PICTURE HERE LUUUUSHHHHHHHHHHHHHHHHH <-----------------------------------------------------------------------------------------------------------------------------
 						al_draw_scaled_bitmap(loadscreen2, 0, 0, screen2W, screen2H, 0, 0, screen2W, screen2H, 0);
 						al_draw_textf(font11, al_map_rgb(255, 255, 255), 825, 360, 0, "%d", player.lives);
 					}
@@ -1068,7 +1075,8 @@ int main(void)
 
 						al_draw_scaled_bitmap(loadscreen3, 0, 0, screen3W, screen3H, 0, 0, screen3W, screen3H, 0);
 					al_draw_textf(font11, al_map_rgb(255, 255, 255), 825, 360, 0, "%d", player.lives);
-					}
+					//al_draw_filled_rectangle(0, 0, res_x, res_y, al_map_rgb(2, 0, 220));//PUT THE PICTURE HERE LUUUUSHHHHHHHHHHHHHHHHH <-----------------------------------------------------------------------------------------------------------------------------
+				}
 				al_flip_display();
 
 				al_clear_to_color(al_map_rgb(0, 191, 255));
