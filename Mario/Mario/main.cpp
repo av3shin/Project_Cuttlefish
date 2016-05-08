@@ -1863,7 +1863,7 @@ void initSpike(spike spikes[], int size)
 	}//END OF STAGE 3
 
 }
-void CreateEnemies(enemies guys[], int size, int counter) {
+void CreateEnemies(enemies guys[], int size, int counter) { // enemy constructor
 	if (level == 1)
 	{
 
