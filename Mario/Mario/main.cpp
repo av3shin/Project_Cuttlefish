@@ -239,8 +239,6 @@ int main(void)
 	int loadDelay = 0;
 	bool loadGame = false;
 	bool nextLevel = false;
-	int cheatTimer = 0;
-	bool cheatEnabled = false;
 	bool moveR = false;
 	bool moveL = false;
 	bool moveU = false;
@@ -546,10 +544,6 @@ int main(void)
 					keys[A] = true;
 				}
 				break;
-			case ALLEGRO_KEY_L:
-				if (!cheatEnabled)
-					keys[L] = true;
-				break;
 			case ALLEGRO_KEY_SPACE:
 				if (gameStart) {
 					if (!deathPause&&!nextLevel&&!GoodGame) {
@@ -714,23 +708,6 @@ int main(void)
 
 
 			if (gameStart) {
-
-				if (keys[L])//CHEAT <--- +100 LIVES
-				{
-
-					cheatTimer++;
-					if (cheatTimer == 200)
-					{
-						player.lives += 100;
-						cheatEnabled = true;
-
-					}
-
-				}if (!keys[L] && cheatTimer > 0)
-				{
-					cheatTimer -= 2;
-					if (cheatTimer <= 0) { cheatEnabled = false; }
-				}
 
 				// JUMPING....
 				if (!feet_check && !jump_h&&!block_limit(blocks, num_blocks)) {
@@ -1053,8 +1030,6 @@ int main(void)
 				//al_draw_textf(font12, al_map_rgb(210, 0, 0), 29, 80, 0, "g    %d", g);
 				//al_draw_textf(font12, al_map_rgb(210, 0, 0), 29, 100, 0, "Width    %d", imageBGWidth);
 
-				if (cheatEnabled)
-					al_draw_text(font12, al_map_rgb(255, 0, 0), 200, res_y / 2, 0, "CHEAT ENABLED");
 				if (deathPause)
 					al_draw_text(font12, al_map_rgb(222, 0, 0), 200, res_y / 2, 0, "PRESS SPACEBAR TO CONTINUE");
 				drawproj(proj, num_proj);
@@ -1863,7 +1838,7 @@ void initSpike(spike spikes[], int size)
 	}//END OF STAGE 3
 
 }
-void CreateEnemies(enemies guys[], int size, int counter) {
+void CreateEnemies(enemies guys[], int size, int counter) { // enemy constructor
 	if (level == 1)
 	{
 
