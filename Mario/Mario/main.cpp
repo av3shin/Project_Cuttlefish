@@ -1,16 +1,7 @@
 //-------------------------------------------------------------------------------------------------------------
 // Main Solution
 //-------------------------------------------------------------------------------------------------------------
-/*
-Includes:
-- Related Allegro Addon imports
-- Set constants for the frames/second (FPS) and frame height & width
-- Sets keys to be used (directional movement has been implemented, but the action key is unused)
-- Initialisations: allegro, keyboard, timer, event queue, image addon, bitmap, display
-- Initialisation ERROR checks are included
-//-------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------
-*/
+
 
 //-------------------------------------------------------------------------------------------------------------
 // Imports and Constants: Start
@@ -28,27 +19,25 @@ Includes:
 enum Keys { A, S, D, W, SPACE, L }; //Setting up needed keys for keyboard control of MC
 int res_x = 1280; //constant integers that dictate the width & height of the display
 int res_y = 820;
-int pos_x = 0;
+int pos_x = 0; //0
 int checkpoint = 0;
 int blockNum = 0;
 const int num_proj = 5;
-int level = 1;
+int level = 1;//level 1
 int g = 1;
 
 
-struct person {
+struct person { //Main character structure
 	int r = 20;
 	int feet = res_y - 55;
 	int x = 200;
 	int y = feet - (3 * r);
 	int j_height = res_y - 450;
-	int ms = 5;
+	int ms = 5; //ms = movement speed
 	int jumpspeed = 7;
 	int lives = 5;
 	int score = 0;
-
-
-}player;
+	}player;
 
 int deathDelay = 0;
 int c = 0;
@@ -64,7 +53,7 @@ bool LR = false;
 
 
 
-void initproj(Projectiles proj[], int size);
+void initproj(Projectiles proj[], int size); //Declarations of functions
 void drawproj(Projectiles proj[], int size);
 void shoot(Projectiles proj[], int size);
 void update(Projectiles proj[], int size);
@@ -179,7 +168,7 @@ ALLEGRO_BITMAP *WALLimage = NULL;//pause screen
 int imageWALLHeight = 0;
 int imageWALLWidth = 0;
 
-ALLEGRO_BITMAP *WALLDimage = NULL;//pause screen DEMO
+ALLEGRO_BITMAP *WALLDimage = NULL;//pause screen
 int imageWALLDHeight = 0;
 int imageWALLDWidth = 0;
 
@@ -187,16 +176,16 @@ ALLEGRO_BITMAP *WALLQimage = NULL;//pause screen QUIT
 int imageWALLQHeight = 0;
 int imageWALLQWidth = 0;
 
-ALLEGRO_BITMAP *WALL2image = NULL;//start screen
+ALLEGRO_BITMAP *WALL2image = NULL;//start screen 1
 int imageWALL2Height = 0;
 int imageWALL2Width = 0;
 
-ALLEGRO_BITMAP *WALL2Dimage = NULL;//start screen
+ALLEGRO_BITMAP *WALL2Dimage = NULL;//start screen 2
 int imageWALL2DHeight = 0;
 int imageWALL2DWidth = 0;
 
 
-ALLEGRO_BITMAP *WALL2Qimage = NULL;//start screen
+ALLEGRO_BITMAP *WALL2Qimage = NULL;//start screen 3
 int imageWALL2QHeight = 0;
 int imageWALL2QWidth = 0;
 
@@ -234,7 +223,7 @@ int pointer = 400;
 
 int main(void)
 {
-	bool gamePause = false;
+	bool gamePause = false; //Initial bool conditions set to false, become true on event
 	bool gameStart = false;
 	int loadDelay = 0;
 	bool loadGame = false;
@@ -257,7 +246,7 @@ int main(void)
 	bool feet_check = true;
 	int jump_cnt = 0;
 	bool keys[6] = { false, false, false, false, false,false };
-	int const FPS = 60;
+	int const FPS = 60; // game frame rate
 	bool Gamerunning = true;
 	bool deathsound = true;
 	bool GOsound = true;
@@ -268,13 +257,18 @@ int main(void)
 	Projectiles proj[5];
 	bool enemycheck = false;
 
-	//**********************************END GAME STUFF************************************************
+	//-------------------------------------------------------------------------------------------------------------
+	// End Game: Start
+	//-------------------------------------------------------------------------------------------------------------
+
 	int mMonkey = 0;
 	int mLuigi = 0;
 	int mMario = 0;
 	bool GoodGame = false;
 
-	//************************************************************************************************
+	//-------------------------------------------------------------------------------------------------------------
+	// End Game: End
+	//-------------------------------------------------------------------------------------------------------------
 
 	bool enemycheck2 = false;
 	SetEnemies(guys, num_enemies);
@@ -310,7 +304,7 @@ int main(void)
 
 
 
-	ALLEGRO_DISPLAY *display = NULL;
+	ALLEGRO_DISPLAY *display = NULL; //Null pointers for Allegro entities
 	ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 	ALLEGRO_TIMER *timer = NULL;
 	ALLEGRO_BITMAP *image = NULL;
@@ -335,7 +329,7 @@ int main(void)
 	al_init_font_addon();
 	al_init_ttf_addon();								//allows for text
 	al_init_primitives_addon();
-	al_install_keyboard();							// allows to work with keyboard keys.
+	al_install_keyboard();							    // allows to work with keyboard keys.
 	al_install_mouse();
 	al_hide_mouse_cursor(display);
 	timer = al_create_timer(1.0 / FPS);
@@ -344,8 +338,8 @@ int main(void)
 
 
 
-	al_reserve_samples(10);
-	shot1 = al_load_sample("shot.wav");
+	al_reserve_samples(10); 
+	shot1 = al_load_sample("shot.wav"); //Setting sounds to their variables
 	boom = al_load_sample("boom.wav");
 	song = al_load_sample("song.wav");
 	jumping = al_load_sample("jump.wav");
@@ -393,20 +387,20 @@ int main(void)
 	endgame = al_load_bitmap("endgame.jpg");
 
 
-	imageRIGHT[0] = al_load_bitmap("LW1.png");
+	imageRIGHT[0] = al_load_bitmap("LW1.png"); //Luigi Movement Animations to the right
 	imageRIGHT[1] = al_load_bitmap("LW2.png");
 	imageRIGHT[2] = al_load_bitmap("LW3.png");
 	imageRIGHT[3] = al_load_bitmap("LW4.png");
 
-	imageLEFT[3] = al_load_bitmap("LW1.png");
-	imageLEFT[2] = al_load_bitmap("LW2.png");
-	imageLEFT[1] = al_load_bitmap("LW3.png");
-	imageLEFT[0] = al_load_bitmap("LW4.png");
+	imageLEFT[3] = al_load_bitmap("LW1L.png");//Luigi Movement Animations to the left
+	imageLEFT[2] = al_load_bitmap("LW2L.png");
+	imageLEFT[1] = al_load_bitmap("LW3L.png");
+	imageLEFT[0] = al_load_bitmap("LW4L.png");
 
 	imageUP[0] = al_load_bitmap("LJ1.png");
 	imageUP[1] = al_load_bitmap("LJ2.png");
 
-	koopa = al_load_bitmap("Koopa.png");
+	koopa = al_load_bitmap("Koopa.png");//.png
 
 	bgimage = al_load_bitmap("back1.png");
 
@@ -433,19 +427,19 @@ int main(void)
 
 	imageBGWidth = al_get_bitmap_width(bgimage);
 	imageBGHeight = al_get_bitmap_height(bgimage);
-	////////////////////////////////////////////////////////////////////
+
 	imageWALLWidth = al_get_bitmap_width(WALLimage);
 	imageWALLHeight = al_get_bitmap_height(WALLimage);
 
 	imageWALL2Width = al_get_bitmap_width(WALL2image);
 	imageWALL2Height = al_get_bitmap_height(WALL2image);
-	///////////////////////////////////////////////////////////////////
+
 	imageWALLDWidth = al_get_bitmap_width(WALLDimage);
 	imageWALLDHeight = al_get_bitmap_height(WALLDimage);
 
 	imageWALL2DWidth = al_get_bitmap_width(WALL2Dimage);
 	imageWALL2DHeight = al_get_bitmap_height(WALL2Dimage);
-	////////////////////////////////////////////////////////////////////////
+	
 	imageWALLQWidth = al_get_bitmap_width(WALLQimage);
 	imageWALLQHeight = al_get_bitmap_height(WALLQimage);
 
@@ -461,22 +455,15 @@ int main(void)
 	screen3W = al_get_bitmap_width(loadscreen3);
 	screen3H = al_get_bitmap_height(loadscreen3);
 
-
-
-
 	imageWidth = al_get_bitmap_width(image);
 	imageHeight = al_get_bitmap_height(image);
-
-
-	//al_set_target_bitmap(image);
-
 
 	al_set_target_bitmap(al_get_backbuffer(display));
 	event_queue = al_create_event_queue();
 	ALLEGRO_FONT *font12 = al_load_font("emulogic.ttf", 20, 0);
 	ALLEGRO_FONT *font11 = al_load_font("emulogic.ttf", 85, 0);
 	ALLEGRO_FONT *font13 = al_load_font("tlpsmb.ttf", 32, 0);
-	//allows for fonts...
+	
 	al_register_event_source(event_queue, al_get_keyboard_event_source());	//register keyboard to events.
 	al_register_event_source(event_queue, al_get_display_event_source(display)); // Register events from display.
 	al_register_event_source(event_queue, al_get_mouse_event_source()); //register mouse input to events
@@ -495,13 +482,13 @@ int main(void)
 
 
 
-		if (ev.type == ALLEGRO_EVENT_KEY_DOWN)
+		if (ev.type == ALLEGRO_EVENT_KEY_DOWN) //If key is pressed
 		{
 			switch (ev.keyboard.keycode)
 
 			{
 
-			case ALLEGRO_KEY_UP:
+			case ALLEGRO_KEY_UP: //Up Arrow Pressed
 
 				if (gameStart) {
 					if (!deathPause&&!nextLevel&&!GoodGame)
@@ -549,16 +536,12 @@ int main(void)
 					if (!deathPause&&!nextLevel&&!GoodGame) {
 						keys[SPACE] = true;
 						shoot(proj, num_proj);
-						//if (stage)
 					}
 				}
 				break;
 			}
-
-
-
 		}
-		else if (ev.type == ALLEGRO_EVENT_KEY_UP)
+		else if (ev.type == ALLEGRO_EVENT_KEY_UP) //Key Released
 		{
 			switch (ev.keyboard.keycode)
 			{
@@ -575,11 +558,9 @@ int main(void)
 				break;
 
 			case ALLEGRO_KEY_UP:
-
 				if (!jump_h&&!feet_check)
 				{
 					moveU = false;
-
 					fall = true;
 				}
 				break;
@@ -588,37 +569,37 @@ int main(void)
 				keys[D] = false;
 				moveR = false;
 				break;
+
 			case ALLEGRO_KEY_LEFT:
 				keys[A] = false;
 				moveL = false;
 				break;
+
 			case ALLEGRO_KEY_SPACE:
 				if (gameStart) {
 					if (deathPause)
 					{
-						player.score -= 50;
-						player.lives--;
-						if (player.lives > 0)
+						player.score -= 50; //Reduce the player's score by 50
+						player.lives--; //And subtract one life
+						if (player.lives > 0) //If the player has more than one life left
 						{
 
-							pos_x = checkpoint;
-							ISEEDEADPEOPLE(guys, num_enemies);
+							pos_x = checkpoint; //They will respawn on the level that they died at
+							ISEEDEADPEOPLE(guys, num_enemies); //Respawns enemies that died
 							deathPause = false;
 							deathsound = true;
 							GOsound = true;
 						}
-						if (player.lives == 0)
+						if (player.lives == 0) //If no lives left
 						{
-
-							//al_play_sample(pause, 1, 0, 1, ALLEGRO_PLAYMODE_ONCE, foo6);//SOME GAME OVER MESSSAGE HERE <----------------------------------------------------------------------------------------------------
-							stage = false;
+							stage = false; //remove terrain
 							if (gamePause)
 							{
 								gameStart = true;
 							}
 							gameStart = false;
 
-							level = 1;
+							level = 1; //Restart game to level 1
 
 							pos_x = 0;
 							checkpoint = 0;
@@ -653,30 +634,6 @@ int main(void)
 							nextLevel = true;
 						}
 					}
-					else if (pointer == 450)
-					{//RUN THE DEMO HERE <------------------------------------------------------------------------------------------------------------
-
-						if (!start) {
-							level = 1;
-
-							level = 1;
-
-							pos_x = 0;
-							checkpoint = 0;
-							player.lives = 5;
-							gamePause = true;
-							gameStart = true;
-							delay = 0;
-							nextLevel = true;
-							shot = false;
-							Apocalypse(guys, num_enemies);
-							deathPause = false;
-							player.score = 0;
-							temp = 0;
-							pointer = 400;
-
-						}
-					}
 					else if (pointer == 500)
 					{
 						Gamerunning = false;
@@ -694,35 +651,23 @@ int main(void)
 
 
 		else if (ev.type == ALLEGRO_EVENT_TIMER) {		//timer starting
-
-
-
-
-
 			if (pos_x > temp)
 			{
 				player.score++;
 				temp = pos_x;
 			}
-
-
-
+			
 			if (gameStart) {
-
-				// JUMPING....
-				if (!feet_check && !jump_h&&!block_limit(blocks, num_blocks)) {
-
+				if (!feet_check && !jump_h&&!block_limit(blocks, num_blocks)) { //Jumping
 					jump(player.jumpspeed);
 					jump_cnt += player.jumpspeed;
 					if (jump_cnt >= player.j_height || block_limit(blocks, num_blocks))
 					{
 						jump_h = true;
-
 					}
 
 					if (fall&& jump_cnt > 200)
 						jump_h = true;
-
 				}
 				if (jump_h&&!feet_check)
 				{
@@ -744,7 +689,7 @@ int main(void)
 
 							jump_h = false;
 							feet_check = true;
-							player.j_height = res_y - blocks[blockNum].y + 250;//something like this
+							player.j_height = res_y - blocks[blockNum].y + 250;
 							delay = 0;
 							fallOfBlock = true;
 							fallOfPipe = false;
@@ -787,15 +732,15 @@ int main(void)
 					fallOfPipe = false;
 				}
 
-				//END JUMPING
+				//End Jumping
 
 
 				// MOVES CHARACTER
-				if (box_right(blocks, num_blocks) && pipe_right(pipes, num_pipes))	//***********************************************
+				if (box_right(blocks, num_blocks) && pipe_right(pipes, num_pipes))	
 					pos_x += keys[D] * player.ms;
 				if (pos_x > -200)
 				{
-					if (box_left(blocks, num_blocks) && pipe_left(pipes, num_pipes))  //***********************************************
+					if (box_left(blocks, num_blocks) && pipe_left(pipes, num_pipes)) 
 						pos_x -= keys[A] * player.ms;
 				}
 
@@ -811,7 +756,7 @@ int main(void)
 					temp = 0;
 				}
 
-				//END OF GAME THINGI
+				//END OF GAME THING
 				else if (pos_x >= 11000 && level == 3)
 				{
 					keys[D] = false;
@@ -828,14 +773,12 @@ int main(void)
 					mLuigi += 5;
 					player.x += 5;
 					moveR = true;
-					if (mLuigi >= 1800)							//MOVING LUIGI AT END OF GAME
+					if (mLuigi >= 1800)	//MOVING LUIGI AT END OF GAME
 					{
 
 						mMario += 5;
 					}
 				}
-
-
 
 				//END OF END OF GAME
 				if (nextLevel)
@@ -856,17 +799,11 @@ int main(void)
 				}
 				// END MOVES CHARACTER
 
-
-
-
-
-
-
+				
 				//ENEMY MOVING
 
 				if (keys[SPACE])
 				{
-
 					update(proj, num_proj);
 				}
 				if (!enemycheck2 && c >= 0 && c <= 500)
@@ -910,8 +847,6 @@ int main(void)
 						deathsound = false;
 
 					}
-
-
 					keys[A] = false;
 					keys[D] = false;
 					deathPause = true;
@@ -996,7 +931,7 @@ int main(void)
 				}
 				if (level == 3)
 				{
-					al_draw_scaled_bitmap(koopa, 0, 0, 200, 200, 11500 - pos_x + 450 + mMonkey, res_y - 250, 200, 200, 0);//<<<<<<<<<<<<<<<<<<<<<MONKEY
+					al_draw_scaled_bitmap(koopa, 0, 0, 270, 270, 11500 - pos_x + 450 + mMonkey, res_y - 250, 200, 200, 0);//<<<<<<<<<<<<<<<<<<<<<MONKEY
 
 
 					if (++Fcount >= FDelay)
@@ -1020,15 +955,13 @@ int main(void)
 
 				}
 				if (!deathPause) {
-					//al_draw_scaled_bitmap(image, 0, 0, 64, 128, player.x - player.r, player.y - player.r, 64 * 0.6, 128 * 0.6, 0);
+					
 
 				}
 
-				al_draw_textf(font12, al_map_rgb(200, 0, 0), 30, 20, 0, "LIVES:  %d", player.lives);
-				al_draw_textf(font12, al_map_rgb(200, 0, 0), 29, 40, 0, "SCORE:  %d", player.score);
-				al_draw_textf(font12, al_map_rgb(210, 0, 0), 29, 60, 0, "POSITION:    %d", pos_x);
-				//al_draw_textf(font12, al_map_rgb(210, 0, 0), 29, 80, 0, "g    %d", g);
-				//al_draw_textf(font12, al_map_rgb(210, 0, 0), 29, 100, 0, "Width    %d", imageBGWidth);
+				al_draw_textf(font12, al_map_rgb(200, 0, 0), 30, 40, 0, "LIVES:  %d", player.lives); //HUD
+				al_draw_textf(font12, al_map_rgb(200, 0, 0), 29, 60, 0, "SCORE:  %d", player.score);
+				al_draw_textf(font12, al_map_rgb(210, 0, 0), 29, 80, 0, "POSITION:    %d", pos_x);
 
 				if (deathPause)
 					al_draw_text(font12, al_map_rgb(222, 0, 0), 200, res_y / 2, 0, "PRESS SPACEBAR TO CONTINUE");
@@ -1043,15 +976,12 @@ int main(void)
 
 					if (level == 2)
 					{
-						//al_draw_filled_rectangle(0, 0, res_x, res_y, al_map_rgb(2, 220, 0));//PUT THE PICTURE HERE LUUUUSHHHHHHHHHHHHHHHHH <-----------------------------------------------------------------------------------------------------------------------------
 						al_draw_scaled_bitmap(loadscreen2, 0, 0, screen2W, screen2H, 0, 0, screen2W, screen2H, 0);
 						al_draw_textf(font11, al_map_rgb(255, 255, 255), 825, 360, 0, "%d", player.lives);
 					}
 					if (level == 3)
-
-						al_draw_scaled_bitmap(loadscreen3, 0, 0, screen3W, screen3H, 0, 0, screen3W, screen3H, 0);
+					al_draw_scaled_bitmap(loadscreen3, 0, 0, screen3W, screen3H, 0, 0, screen3W, screen3H, 0);
 					al_draw_textf(font11, al_map_rgb(255, 255, 255), 825, 360, 0, "%d", player.lives);
-					//al_draw_filled_rectangle(0, 0, res_x, res_y, al_map_rgb(2, 0, 220));//PUT THE PICTURE HERE LUUUUSHHHHHHHHHHHHHHHHH <-----------------------------------------------------------------------------------------------------------------------------
 				}
 				al_flip_display();
 
@@ -1063,7 +993,6 @@ int main(void)
 		if (!gameStart) {
 			if (!gamePause)
 			{
-				//al_draw_text(font13, al_map_rgb(255, 255, 255),150, 400, 0, "START GAME");
 				stage = false;
 				start = true;
 			}
@@ -1071,18 +1000,14 @@ int main(void)
 			{
 				stage = false;
 				al_stop_sample_instance(songInstance);
-				//al_draw_text(font13, al_map_rgb(255, 255, 255), 150, 400, 0, "RESUME GAME");
 				start = false;
 			}
-			//al_draw_text(font13, al_map_rgb(255, 255, 255), 150, 450, 0, "DEMO");
-			//al_draw_text(font13, al_map_rgb(255, 255, 255), 150, 500, 0, "END GAME");
 			al_draw_text(font12, al_map_rgb(255, 255, 255), 100, pointer, 0, ">");
 
 			if (loadDelay<100)
 			{
 				loadDelay++;
 				loadGame = true;
-				//al_draw_filled_rectangle(0, 0, res_x, res_y, al_map_rgb(255, 0, 0));
 			}
 			else { loadGame = false; }
 
@@ -1096,10 +1021,10 @@ int main(void)
 				}
 				al_stop_sample_instance(songInstance);
 				al_draw_scaled_bitmap(gameover, 0, 0, 1280, 820, 0, 0, 1280, 820, 0);
-				if (!slowdown && slownum <= 30)
+				if (!slowdown && slownum <= 30) //Game Over Screen
 				{
 					slownum++;
-					al_draw_scaled_bitmap(gameoverFlash, 0, 0, 1280, 820, 0, 0, 1280, 820, 0);
+					al_draw_scaled_bitmap(gameoverFlash, 0, 0, 1280, 820, 0, 0, 1280, 820, 0); //transitions screen continuously
 					if (slownum >= 30)
 					{
 						slowdown = true;
@@ -1117,22 +1042,10 @@ int main(void)
 
 			}
 
-
-
-
 			al_flip_display();
-
-			//al_clear_to_color(al_map_rgb(0, 0, 0));
-			//al_draw_scaled_bitmap(WALLimage, 0, 0, imageWALLWidth, imageWALLHeight, 0, 0, imageWALLWidth, imageWALLHeight, 0);
-			GenerateSTART(start);
-
-
-
+		    GenerateSTART(start);
+			}
 		}
-
-	}
-
-
 	for (int i = 0; i < maxFrame; i++)
 	{
 		al_destroy_bitmap(imageRIGHT[i]);
@@ -1155,33 +1068,24 @@ void jump(int y) {
 	player.y = player.feet - (3 * player.r);
 }
 
-//***************************************************************************STAGE CREATORRRR RRAWWRRRR*****************************************************************************************************
+//Stage Creation Section
 void initblock(block B[], int size)
 {
 	if (level == 1)//STAGE 1
 	{
-
-
-		for (int i = 0; i < size; i++)
+   		for (int i = 0; i < size; i++)
 		{
 			B[i].x = -1000;						//clears stage
 			B[i].y = 0;
 		}
-
-
-
-
+				
 		B[1].x = 1000;
 		for (int i = 1; i < 5; i++)
 			B[i + 1].x = B[i].x + box_width + 5;
-
-
+		
 		B[6].x = 1600;
 		for (int i = 6; i < 10; i++)
 			B[i + 1].x = B[i].x + box_width + 5;
-
-
-
 
 		B[11].x = 2000;
 		B[12].x = B[11].x + box_width + 5;
@@ -1252,9 +1156,6 @@ void initblock(block B[], int size)
 			B[i].y = 390;
 		}
 
-		//B[41].x = 6200;
-		//B[41].y = 550;
-
 		B[42].x = 7000;
 		B[42].y = 450;
 
@@ -1271,11 +1172,9 @@ void initblock(block B[], int size)
 
 
 		B[45].x = 8750;
-		//B[46].x = B[45].x + box_width + 5;
 		B[45].y = 550;
-		//B[46].y = 550;
-
 		B[46].x = 9000;
+
 		for (int i = 47; i <= 57; i++)
 		{
 			B[i].x = B[i - 1].x + box_width + 5;
@@ -1286,10 +1185,7 @@ void initblock(block B[], int size)
 			B[i].y = 400;
 		}
 
-
-
 	}//END OF STAGE 1
-
 
 	if (level == 2)
 	{//START OF STAGE2
@@ -1298,8 +1194,6 @@ void initblock(block B[], int size)
 			B[i].x = -1000;						//clears stage
 			B[i].y = 0;
 		}
-
-
 
 		B[0].x = 1450;
 		B[0].y = 550;
@@ -1350,25 +1244,15 @@ void initblock(block B[], int size)
 		B[33].x = 9550;				B[33].y = 600;
 		B[34].x = 9600;				B[34].y = 600;
 		B[35].x = 9650;	            B[35].y = 300;
-		//B[36].x = 9700;	            B[36].y = 300;
-
-
-
 	}//END OF STAGE 2 
-
-
-
 
 	if (level == 3)//STAGE 3
 	{
-
-
 		for (int i = 0; i < size; i++)
 		{
 			B[i].x = -1000;						//clears stage
 			B[i].y = 0;
 		}
-
 
 		int count = 0;
 		for (int i = 1500; i <= 2500; i += box_width + 5)
@@ -1379,7 +1263,7 @@ void initblock(block B[], int size)
 				B[count].y = 550;
 			count++;
 
-			if (i >= 2000 && i <= 2500)                             //FALLS THROUGH THESE BLOCKS !!!!!!!!! 3RD SET (HIGHEST)
+			if (i >= 2000 && i <= 2500) 
 				B[count].y = 330;
 		}
 
@@ -1391,8 +1275,7 @@ void initblock(block B[], int size)
 			count++;
 		}
 
-
-
+		
 		B[0].x = 1000;				B[0].y = 250;
 		B[1].x = 1060;				B[1].y = 300;
 		B[30].x = 3300;				B[30].y = 400;
@@ -1570,17 +1453,11 @@ void initPipe(Pipe pipes[], int size)
 		pipes[4].x = 4300;
 		pipes[4].y = 300;
 
-		//pipes[5].x = 6500;
-		//pipes[5].y = 550;
-
 		pipes[6].x = 5880;
 		pipes[6].y = 550;
 
 		pipes[7].x = 7040;
 		pipes[7].y = 550;
-
-		//pipes[8].x = 7200;
-		//pipes[8].y = 550;
 
 		pipes[9].x = 8200;
 		pipes[9].y = 550;
@@ -1616,18 +1493,13 @@ void initPipe(Pipe pipes[], int size)
 			pipes[i].y = 0;
 		}
 
-		pipes[0].x = 2900;         	pipes[0].y = 250;      //CHANGE Y TO 250 ONCE BLOCKS ARE FIXED      
+		pipes[0].x = 2900;         	pipes[0].y = 250;      
 		pipes[1].x = 4800;			pipes[1].y = 650;
 		pipes[2].x = 6000;			pipes[2].y = 400;
 
 
 		pipes[3].x = 6850;			pipes[3].y = 550;
-		/*pipes[4].x = 8800;			pipes[4].y = 450;*/
-
 		pipes[5].x = 7730;			pipes[5].y = 550;
-		//pipes[6].x = 8800;			pipes[6].y = 450;
-
-
 
 	}//END OF STAGE 3
 
@@ -1645,15 +1517,11 @@ void initSpike(spike spikes[], int size)
 			spikes[i].l = false;
 		}
 
-
-
 		for (int i = 0; i < size; i++)
 			spikes[i].y = 720;
 
-
 		for (int i = 0; i < size; i++)
 			spikes[i].y = 720;
-
 
 		spikes[0].x = 400;
 		spikes[1].x = 850;
@@ -1675,18 +1543,6 @@ void initSpike(spike spikes[], int size)
 		spikes[15].x = 1820;
 		spikes[6].y = 445;
 
-
-
-		/*int count = 16;
-		for (int i = 6000; i <= 10000; i += spike_width * 2)
-		if ((i < 7030 || i >7030 + pipe_width) && (i < 8200 || i >= 8200 + pipe_width))
-		{
-		spikes[count].x = i;
-		spikes[count].y = 720;
-		count++;
-		}*/
-
-
 	}//END OF STAGE 1
 
 	if (level == 2)
@@ -1703,14 +1559,12 @@ void initSpike(spike spikes[], int size)
 
 		int count = 0;
 		for (int i = 1500; i <= 2500; i += spike_width * 2)
-			//if ((i < 7030 || i >7030 + pipe_width) && (i < 8200 || i >= 8200 + pipe_width))
 		{
 			spikes[count].x = i;
 			spikes[count].y = 720;
 			count++;
 
 		}
-
 
 		int A = 25;
 		for (int i = 4250; i <= 10000; i += spike_width * 2)
@@ -1722,26 +1576,7 @@ void initSpike(spike spikes[], int size)
 				spikes[A].y = 720;
 				A++;
 			}
-		////int B = 60;
-		////for (int i = 7700+pipe_width; i <= 8800; i += spike_width * 2)
-		////	//if ((i < 7030 || i >7030 + pipe_width) && (i < 8200 || i >= 8200 + pipe_width))
-		////{
-		////	spikes[B].x = i;
-		////	spikes[B].y = 720;
-		////	B++;
-
-		////}
-		////int c = 80;
-		////for (int i = 8800+ pipe_width; i <= 9950; i += spike_width * 2)
-		////	//if ((i < 7030 || i >7030 + pipe_width) && (i < 8200 || i >= 8200 + pipe_width))
-		////{
-		////	spikes[c].x = i;
-		////	spikes[c].y = 720;
-		////	c++;
-
-		////}
-
-
+	
 		spikes[0].x = 3720;
 		spikes[0].y = 395;
 
@@ -1755,8 +1590,6 @@ void initSpike(spike spikes[], int size)
 		spikes[3].y = 280;
 
 	}//END OF STAGE 2
-
-
 
 
 	if (level == 3)//STAGE 3
@@ -1815,8 +1648,8 @@ void initSpike(spike spikes[], int size)
 				count1++;
 			}
 
-
-		spikes[80].x = 6538; spikes[80].y = 290; spikes[80].d = true;
+		//Spike 80 - Always remember
+		spikes[80].x = 6488; spikes[80].y = 220; spikes[80].d = true;
 		spikes[81].x = 7705; spikes[81].y = 345;
 		spikes[82].x = 7895; spikes[82].y = 345;
 		spikes[83].x = 7955; spikes[83].y = 280; spikes[83].l = true;
