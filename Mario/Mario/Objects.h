@@ -2,23 +2,29 @@
 //simple all encompassing, header file for all the entities within the game.
 enum game { PLAYER, PROJECTILES, ENEMY };
 
-// Stationary Objects Section Start
-struct block
-{
+class StillObstacles{
+	public:
 	int x;
 	int y;
 };
 
-struct Pipe
+// Stationary Objects Section Start
+class block: public StillObstacles
 {
-	int x;
-	int y;
+	/*int x;
+	int y;*/
+};
+
+class Pipe : public StillObstacles
+{
+	/*int x;
+	int y;*/
 };
 
 struct spike
 {
-	int x;
-	int y;
+	/*int x;
+	int y;*/
 	bool r = false;
 	bool l = false;
 	bool d = false;
@@ -26,23 +32,30 @@ struct spike
 // Stationary Objects Section End
 
 // Moving Objects Section Start
-struct enemies
-{
+class MovingObject{
+public:
 	int ID;
-	int x;
-	int y;
 	bool alive;
 	int boundx;
 	int boundy;
 };
-
-struct Projectiles
+struct enemies: public MovingObject
 {
-	int ID;
+	/*int ID;
+	int x;
+	int y;
+	bool alive;
+	int boundx;
+	int boundy;*/
+};
+
+struct Projectiles: public MovingObject
+{
+	/*int ID;
 	int x;
 	int y;
 	bool live;
-	int speed;
+	int speed;*/
 };
 // Moving Objects Section End
 
